@@ -1,57 +1,58 @@
 import javax.swing.*;
-import javafx.scene.paint.Color;
+
 
 public class Tela extends JFrame {
 
-    private JTextArea txtArea;
-    private String[] opcoes = {"High","Medium","Low"};
+    private JTextArea TextArea;
     private JComboBox<String> Options;
+    private String[] opcoes = {"Low","Medium","High"};
 
     public Tela(){
-    
-        setTitle("Tarefas");
-        setSize(1280,720);
-        setVisible(true);
-        frameConfig();
+
+        setTitle("Tasks");
+        setSize(800,500);
+        configurarJanela();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
     }
 
-    private void frameConfig(){
+    private void configurarJanela() {
+
         JPanel panel = new JPanel();
         panel.setLayout(null);
 
-        JLabel label = new JLabel("Tarefa");
+        JLabel label = new JLabel("Task");
         label.setBounds(50,10,100,30);
         label.setOpaque(true);
 
-        campoTextArea = new JTextArea(50,100);
-        campoTextArea.setBounds(40,50,690,80);
-        campoTextArea.setBorder(BorderFactory.createLineBorder(getForeground()));
-
-        JLabel label2 = new JLabel("Priority");
-        label2.setBounds(40,190,90,50);
-        label2.setOpaque(true);
+        TextArea = new JTextArea(100,100);
+        TextArea.setBounds(60,50,690,80);
+        TextArea.setBorder(BorderFactory.createLineBorder(getForeground()));
 
         Options = new JComboBox<>(opcoes);
         Options.setBounds(50,260,700,30);
 
-        JButton Botao = new JButton("Save");
-        Botao.setBounds(650, 380, 100, 25);
+        JLabel label2 = new JLabel("Priority");
+        label2.setBounds(50,200,100,60);
+        label2.setOpaque(true);
 
-        JButton Cancell = new JButton("Cancell");
-        Cancell.setBounds(530, 380, 100, 25);
+        JButton save = new JButton("save");
+        save.setBounds(650, 380, 100, 25);
+
+        JButton cancelarBotao = new JButton("Cancell");
+        cancelarBotao.setBounds(530, 380, 100, 25);
 
         panel.add(label);
 
         panel.add(label2);
 
+        panel.add(save);
+
+        panel.add(cancelarBotao);
+
         panel.add(Options);
 
-        panel.add(txtArea);
-
-        panel.add(Botao);
-
-        panel.add(Cancell);
+        panel.add(TextArea);
         
         add(panel);
     }
