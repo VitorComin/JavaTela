@@ -6,6 +6,7 @@ public class Tela extends JFrame {
     private JTextArea TextArea;
     private JComboBox<String> Options;
     private String[] opcoes = {"Low","Medium","High"};
+    private JCheckBox check;
 
     public Tela(){
 
@@ -25,6 +26,8 @@ public class Tela extends JFrame {
         label.setBounds(50,10,100,30);
         label.setOpaque(true);
 
+        check = new JCheckBox("check");
+        
         TextArea = new JTextArea(100,100);
         TextArea.setBounds(60,50,690,80);
         TextArea.setBorder(BorderFactory.createLineBorder(getForeground()));
@@ -51,6 +54,8 @@ public class Tela extends JFrame {
         panel.add(cancelarBotao);
 
         panel.add(Options);
+
+        panel.add(check);
 
         panel.add(TextArea);
         
